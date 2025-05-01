@@ -331,9 +331,12 @@ impl Enhancement for GrenadeHelper {
                             Condition::Always,
                         )
                         .position_pivot([0.0, 0.5])
-                        .no_decoration()
+                        .flags(
+                            imgui::WindowFlags::NO_DECORATION
+                                | imgui::WindowFlags::NO_INPUTS
+                                | imgui::WindowFlags::ALWAYS_AUTO_RESIZE
+                        )
                         .draw_background(settings.grenade_background)
-                        .always_auto_resize(true)
                         .begin()
                     {
                         ui.text_colored(color.as_f32(), &grenade.name);
